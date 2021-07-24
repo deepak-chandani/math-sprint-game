@@ -1,13 +1,196 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css?family=Oxanium|PT+Mono&display=swap");
+
+* {
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+    --primary-color: dodgerblue;
+    --select-color: dodgerblue;
+    --success: rgb(15, 158, 2);
+    --danger: rgb(214, 23, 23);
 }
+
+body {
+    background: #e8e8e8;
+    font-family: PT Mono, sans-serif;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23161616' fill-opacity='0.1'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4zM0 56h40v4H0v-4zm63-25a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM53 41a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-30 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-28-8a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zM56 5a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zm-3 46a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM21 0l5 20H16l5-20zm43 64v-4h-4v4h-4v4h4v4h4v-4h4v-4h-4zM36 13h4v4h-4v-4zm4 4h4v4h-4v-4zm-4 4h4v4h-4v-4zm8-8h4v4h-4v-4z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.container {
+    /* width: 70%; */
+    margin: 0 auto;
+}
+
+.game-container {
+    border: 1px solid;
+    border-radius: 5px;
+    max-width: 530px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 70px minmax(425px, auto) 80px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.header {
+    background: var(--primary-color);
+    color: white;
+    font-family: Oxanium, sans-serif;
+    font-size: 1em;
+    text-shadow: 1px 2px 2px black;
+    letter-spacing: 2px;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    background: rgba(0, 0, 0, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer.score {
+    background-color: transparent;
+}
+
+.round-type-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.round-type-item {
+    height: 65px;
+    margin: 10px 5px;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 1.375em;
+    display: grid;
+    grid-template: auto / 2fr 1fr;
+}
+
+.round-type-item.selected {
+    color: #fff;
+    background-color: var(--select-color);
+  }
+
+.round-type-item p {
+    margin: 0;
+    align-self: center;
+    text-align: center;
+}
+
+.best-score {
+    font-size: .85em;
+    align-self: center;
+}
+
+
+button {
+    cursor: pointer;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 25px;
+    font-family: Oxanium, sans-serif;
+    color: white;
+    border: none;
+    outline: none;
+  }
+  
+  button:hover,
+  button:focus {
+    filter: brightness(110%);
+  }
+  
+  button:active {
+    transform: scale(0.99);
+  }
+  
+  .wrong,
+  .right {
+    width: 40%;
+  }
+  
+  .wrong {
+    background: var(--danger);
+    margin-right: 25px;
+  }
+  
+  .right {
+    background: var(--success);
+  }
+  
+  .start,
+  .play-again {
+    width: 90%;
+    background: var(--primary-color);
+  }
+
+  /* Question List screen */
+
+  .question-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow-y: scroll;
+    height: 77vh;
+  }
+
+  .question-item {
+      font-size: .6em;
+      height: 80px;
+  }
+
+  .question-item.selected {
+    background-color: #8fc8ff;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1em;
+  }
+
+  /* Score Screen */
+  .score-container {
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .score-container .title {
+      font-size: 2.875em;
+  }
+
+ .score-container .final-time {
+    font-size: 5em;
+    margin: 0;
+    color: var(--success);
+ }
+
+ .score-container .base-time {
+    margin-top: 100px;
+    margin-bottom: 0;
+ }
+
+ .penalty-time {
+    color: var(--danger);
+    margin-bottom: 2px;
+ }
+
+ div.penalty-container span{
+    display: inline-block;
+    margin-left: 14px;
+ }
+
+ 
+.height-240 {
+    min-height: 68px;
+    width: 100%;
+ }
