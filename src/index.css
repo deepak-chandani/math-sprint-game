@@ -194,3 +194,11 @@ button {
     min-height: 68px;
     width: 100%;
  }
+ 
+ .countdown {
+    margin-top: 15%;
+    font-size: 100px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+}

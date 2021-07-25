@@ -6,12 +6,20 @@ const GameContext = React.createContext();
 
 function gameReducer(state, action){
     switch(action.type){
+        case ACTION_TYPES.SHOW_COUNT_DOWN: {
+            return {
+                ...state,
+                currentScreen: SCREENS.COUNT_DOWN,
+                score: null,
+                selectedRoundTypeId: action.selectedRoundTypeId,
+            }
+        }
         case ACTION_TYPES.START: {
             return {
                 ...state,
                 currentScreen: SCREENS.QUESTION,
                 score: null,
-                selectedRoundTypeId: action.selectedRoundTypeId,
+                // selectedRoundTypeId: action.selectedRoundTypeId,
             }
         }
         case ACTION_TYPES.END: {
@@ -85,13 +93,18 @@ function useGameDispatch(){
 
 /** ------------------------- Actions ------------------------- */
 const ACTION_TYPES = {
+    SHOW_COUNT_DOWN: 'SHOW_COUNT_DOWN',
     START: "START", // start & show first screen
     END: "END", // set score & show score-screen
     RESET: "RESET",
 }
 
-function startGame(dispatch, selectedRoundTypeId){
-    dispatch({type: ACTION_TYPES.START, selectedRoundTypeId})
+function displayCountDown(dispatch, selectedRoundTypeId){
+    dispatch({type: ACTION_TYPES.SHOW_COUNT_DOWN, selectedRoundTypeId})
+}
+
+function startGame(dispatch){
+    dispatch({type: ACTION_TYPES.START})
 }
 
 function endGame(dispatch, score){
@@ -107,7 +120,7 @@ function saveBestScore(dispatch, finalScore, roundTypeId){
 }
 
 
-export {GameProvider, useScore, useGameContext, useGameDispatch, startGame, endGame, resetGame, saveBestScore}
+export {GameProvider, useScore, useGameContext, useGameDispatch, displayCountDown, startGame, endGame, resetGame, saveBestScore}
 
 /**
  * @typedef GameState

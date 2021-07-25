@@ -1,5 +1,5 @@
 import React from "react";
-import { startGame, useGameContext } from "../context/GameContext";
+import { displayCountDown, startGame, useGameContext } from "../context/GameContext";
 import Footer from "./Footer";
 import Header from "./Header";
 import RoundTypeList from "./RoundTypeList";
@@ -14,8 +14,7 @@ function StartScreen(props){
     }
 
     const handleStart = () => {
-        // props.setCurrentScreen(SCREENS.QUESTION);
-        startGame(dispatch, selectedRoundTypeId);
+        displayCountDown(dispatch, selectedRoundTypeId)        
     }
 
     return (

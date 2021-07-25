@@ -5,6 +5,7 @@ import QuestionScreen from "./components/QuestionScreen";
 import { SCREENS } from "./components/types";
 import ScoreScreen from "./components/ScoreScreen";
 import { useGameContext } from "./context/GameContext";
+import CounterScreen from "./components/CounterScreen";
 
 function App() {
   const [{currentScreen}] = useGameContext();
@@ -15,6 +16,7 @@ function App() {
     <div className="container">      
       <div className="game-container">
         {currentScreen === SCREENS.START && <StartScreen  />}
+        {currentScreen === SCREENS.COUNT_DOWN && <CounterScreen />}
         {currentScreen === SCREENS.QUESTION && <QuestionScreen />}
         {currentScreen === SCREENS.SCORE && <ScoreScreen />}
       </div>
