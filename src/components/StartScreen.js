@@ -3,7 +3,6 @@ import { displayCountDown, startGame, useGameContext } from "../context/GameCont
 import Footer from "./Footer";
 import Header from "./Header";
 import RoundTypeList from "./RoundTypeList";
-import { SCREENS } from "./types";
 
 function StartScreen(props){
     const [selectedRoundTypeId, setSelectedRoundTypeId] = React.useState(1);
