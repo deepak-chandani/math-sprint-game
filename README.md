@@ -1,5 +1,7 @@
 <h3 align="center">Basic Mathematics Game build with React Hooks & Context API - <a href="https://deep-math.surge.sh">Math Game (using hooks) demo</a></h3>
 
+https://user-images.githubusercontent.com/15975603/128754490-de805817-7dfa-4fbe-8165-a35626d53bca.mov
+
 ### Info
 I learned different react hooks eg: `useState()`, `useEffect()`, `useReducer()` etc.
 and build this project to implement those concepts & develop something practical.
